@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "android.template.app-debug-39:/layout_activity_main.xml.flat",
+        "source": "android.template.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "android.template.app-debug-39:/xml_data_extraction_rules.xml.flat",
+        "source": "android.template.app-main-41:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "android.template.app-debug-39:/xml_backup_rules.xml.flat",
+        "source": "android.template.app-main-41:/xml/backup_rules.xml"
+    }
+]

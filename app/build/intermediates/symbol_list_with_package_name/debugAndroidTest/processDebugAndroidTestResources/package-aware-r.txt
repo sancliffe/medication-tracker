@@ -1,0 +1,3 @@
+android.template.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

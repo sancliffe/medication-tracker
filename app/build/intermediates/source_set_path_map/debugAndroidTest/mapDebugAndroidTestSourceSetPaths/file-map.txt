@@ -1,0 +1,7 @@
+android.template.test.app-jetified-core-1.5.0-0 /home/steve/.gradle/caches/9.5.0/transforms/38299c34decb0ffce48606857639fb29/transformed/jetified-core-1.5.0/res
+android.template.test.app-jetified-annotation-experimental-1.5.0-1 /home/steve/.gradle/caches/9.5.0/transforms/47eaa1891523562158eb96c34b9666da/transformed/jetified-annotation-experimental-1.5.0/res
+android.template.test.app-jetified-tracing-1.2.0-2 /home/steve/.gradle/caches/9.5.0/transforms/8bd29f0e52deb1e8d566232de0c7a9b6/transformed/jetified-tracing-1.2.0/res
+android.template.test.app-androidTest-3 /home/steve/git-projects/medication-tracker/app/build/generated/res/resValues/androidTest/debug
+android.template.test.app-mergeDebugAndroidTestResources-4 /home/steve/git-projects/medication-tracker/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+android.template.test.app-mergeDebugAndroidTestResources-5 /home/steve/git-projects/medication-tracker/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+android.template.test.app-debugAndroidTest-6 /home/steve/git-projects/medication-tracker/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
