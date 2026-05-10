@@ -10,7 +10,6 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
     <permission
         android:name="android.template.ui.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -28,7 +27,6 @@
         android:label="Medication Tracker"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
         <activity
             android:name="android.template.ui.MainActivity"
