@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MedicationViewModel @Inject constructor(
     private val dao: MedicationDao,
-    private val alarmScheduler: AlarmScheduler
+    private val alarmScheduler: AlarmScheduler,
 ) : ViewModel() {
 
     /**

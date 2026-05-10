@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:2:1-36:12
 MERGED from [com.google.dagger:hilt-android:2.52] /home/steve/.gradle/caches/9.5.0/transforms/d7020315a01aa3b304379fc2b4062b9d/transformed/jetified-hilt-android-2.52/AndroidManifest.xml:16:1-19:12
 MERGED from [androidx.fragment:fragment:1.5.1] /home/steve/.gradle/caches/9.5.0/transforms/a52f5bdb6705b007ca79aeb7332d00e5/transformed/fragment-1.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] /home/steve/.gradle/caches/9.5.0/transforms/06bd8a4b4b0d9f789a4cb04d90d150a1/transformed/jetified-navigationevent/AndroidManifest.xml:2:1-7:12
@@ -74,28 +74,28 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/s
 MERGED from [androidx.print:print:1.0.0] /home/steve/.gradle/caches/9.5.0/transforms/468290b6e29ced76d8e94c1a624f9d18/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.dagger:dagger-lint-aar:2.52] /home/steve/.gradle/caches/9.5.0/transforms/910b3e30062c2eb81d0645bcb7429ce7/transformed/jetified-dagger-lint-aar-2.52/AndroidManifest.xml:16:1-19:12
 	package
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.POST_NOTIFICATIONS
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:4:5-77
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:4:5-77
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:4:22-74
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:4:22-74
 uses-permission#android.permission.SCHEDULE_EXACT_ALARM
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:5:5-79
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:5:22-76
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.USE_EXACT_ALARM
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:6:5-74
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:6:5-74
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:6:22-71
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:6:22-71
 application
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:8:5-34:19
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:8:5-34:19
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:8:5-35:19
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:8:5-35:19
 MERGED from [androidx.window:window:1.5.0] /home/steve/.gradle/caches/9.5.0/transforms/e7d82e90ea1f6561c105f848328d69eb/transformed/jetified-window-1.5.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.window:window:1.5.0] /home/steve/.gradle/caches/9.5.0/transforms/e7d82e90ea1f6561c105f848328d69eb/transformed/jetified-window-1.5.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.emoji2:emoji2:1.4.0] /home/steve/.gradle/caches/9.5.0/transforms/01f538e485d413d066007cc974128277/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
@@ -113,57 +113,59 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/steve/.gradle/caches/
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/steve/.gradle/caches/9.5.0/transforms/9c262b59e79d45c2c7a76d2669b90b71/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/steve/.gradle/caches/9.5.0/transforms/9c262b59e79d45c2c7a76d2669b90b71/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.18.0] /home/steve/.gradle/caches/9.5.0/transforms/8093b89a8c8b38a16667e0b384824aa7/transformed/core-1.18.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:12:9-43
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:13:9-43
+	android:roundIcon
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:12:9-54
 	android:icon
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:11:9-56
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:14:9-71
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:15:9-71
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:9:9-38
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:9:9-38
 activity#android.template.ui.MainActivity
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:16:9-23:20
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:17:9-24:20
 	android:exported
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:18:13-36
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:19:13-36
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:17:13-44
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:18:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:19:13-22:29
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:20:13-23:29
 action#android.intent.action.MAIN
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:21:17-77
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:21:27-74
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:22:27-74
 receiver#android.template.ui.MedicationReminderReceiver
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:25:9-32:20
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:26:9-33:20
 	android:exported
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:27:13-37
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:26:13-58
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:27:13-58
 intent-filter#action:name:android.template.ui.ACTION_SNOOZE+action:name:android.template.ui.ACTION_TAKEN
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:28:13-31:29
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:29:13-32:29
 action#android.template.ui.ACTION_TAKEN
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:29:17-75
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:30:17-75
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:29:25-72
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:30:25-72
 action#android.template.ui.ACTION_SNOOZE
-ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:30:17-76
+ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:31:17-76
 	android:name
-		ADDED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml:30:25-73
+		ADDED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml:31:25-73
 uses-sdk
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
-INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
+INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 MERGED from [com.google.dagger:hilt-android:2.52] /home/steve/.gradle/caches/9.5.0/transforms/d7020315a01aa3b304379fc2b4062b9d/transformed/jetified-hilt-android-2.52/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:hilt-android:2.52] /home/steve/.gradle/caches/9.5.0/transforms/d7020315a01aa3b304379fc2b4062b9d/transformed/jetified-hilt-android-2.52/AndroidManifest.xml:18:3-42
 MERGED from [androidx.fragment:fragment:1.5.1] /home/steve/.gradle/caches/9.5.0/transforms/a52f5bdb6705b007ca79aeb7332d00e5/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
@@ -303,9 +305,9 @@ MERGED from [androidx.print:print:1.0.0] /home/steve/.gradle/caches/9.5.0/transf
 MERGED from [com.google.dagger:dagger-lint-aar:2.52] /home/steve/.gradle/caches/9.5.0/transforms/910b3e30062c2eb81d0645bcb7429ce7/transformed/jetified-dagger-lint-aar-2.52/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:dagger-lint-aar:2.52] /home/steve/.gradle/caches/9.5.0/transforms/910b3e30062c2eb81d0645bcb7429ce7/transformed/jetified-dagger-lint-aar-2.52/AndroidManifest.xml:18:3-42
 	android:targetSdkVersion
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/steve/git-projects/medication-tracker/app/src/main/AndroidManifest.xml
+		INJECTED from /home/steve/StudioProjects/medication-tracker/app/src/main/AndroidManifest.xml
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.5.0] /home/steve/.gradle/caches/9.5.0/transforms/e7d82e90ea1f6561c105f848328d69eb/transformed/jetified-window-1.5.0/AndroidManifest.xml:23:9-25:40
 	android:required

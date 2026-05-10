@@ -60,7 +60,7 @@ class MedicationReminderReceiver : BroadcastReceiver() {
                     context,
                     medId.toInt(), // Use medication ID to avoid collisions
                     snoozeReminderIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
                 )
 
                 val snoozeTimeMillis = System.currentTimeMillis() + (15 * 60 * 1000)
@@ -82,21 +82,19 @@ class MedicationReminderReceiver : BroadcastReceiver() {
     private fun showNotification(context: Context, medName: String, medId: Long) {
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        // Create the NotificationChannel (required for Android O and above)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                "med_reminders",
-                "Medication Reminders",
-                NotificationManager.IMPORTANCE_HIGH
-            ).apply {
-                description = "Channel for medication reminder notifications"
-            }
-            notificationManager.createNotificationChannel(channel)
+        // Create the NotificationChannel
+        val channel = NotificationChannel(
+            "med_reminders",
+            "Medication Reminders",
+            NotificationManager.IMPORTANCE_HIGH
+        ).apply {
+            description = "Channel for medication reminder notifications"
         }
+        notificationManager.createNotificationChannel(channel)
 
         val pendingIntent = PendingIntent.getActivity(
             context, 0, Intent(context, MainActivity::class.java),
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
         // 1. Create the PendingIntent for the "Take" action
@@ -109,7 +107,7 @@ class MedicationReminderReceiver : BroadcastReceiver() {
             context,
             medId.toInt(), // Use medication ID for unique request code
             takeIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
         // 2. Create the PendingIntent for the "Snooze" action
@@ -122,7 +120,7 @@ class MedicationReminderReceiver : BroadcastReceiver() {
             context,
             medId.toInt() + 1, // Differentiate from the take pending intent request code
             snoozeIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
         val notification = NotificationCompat.Builder(context, "med_reminders")

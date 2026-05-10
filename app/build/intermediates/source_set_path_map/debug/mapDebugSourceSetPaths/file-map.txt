@@ -33,10 +33,10 @@ android.template.app-jetified-window-1.5.0-31 /home/steve/.gradle/caches/9.5.0/t
 android.template.app-jetified-graphics-path-1.0.1-32 /home/steve/.gradle/caches/9.5.0/transforms/e9c654a6fc338bb4c926866b49b6e3ea/transformed/jetified-graphics-path-1.0.1/res
 android.template.app-jetified-savedstate-ktx-1.4.0-33 /home/steve/.gradle/caches/9.5.0/transforms/ecd95b44a933cf20dd9dd4cfa5651756/transformed/jetified-savedstate-ktx-1.4.0/res
 android.template.app-jetified-material3-34 /home/steve/.gradle/caches/9.5.0/transforms/f4e893fb5e3cdf133ec7f9b38e5740fa/transformed/jetified-material3/res
-android.template.app-pngs-35 /home/steve/git-projects/medication-tracker/app/build/generated/res/pngs/debug
-android.template.app-resValues-36 /home/steve/git-projects/medication-tracker/app/build/generated/res/resValues/debug
-android.template.app-packageDebugResources-37 /home/steve/git-projects/medication-tracker/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-android.template.app-packageDebugResources-38 /home/steve/git-projects/medication-tracker/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-android.template.app-debug-39 /home/steve/git-projects/medication-tracker/app/build/intermediates/merged_res/debug/mergeDebugResources
-android.template.app-debug-40 /home/steve/git-projects/medication-tracker/app/src/debug/res
-android.template.app-main-41 /home/steve/git-projects/medication-tracker/app/src/main/res
+android.template.app-pngs-35 /home/steve/StudioProjects/medication-tracker/app/build/generated/res/pngs/debug
+android.template.app-resValues-36 /home/steve/StudioProjects/medication-tracker/app/build/generated/res/resValues/debug
+android.template.app-packageDebugResources-37 /home/steve/StudioProjects/medication-tracker/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+android.template.app-packageDebugResources-38 /home/steve/StudioProjects/medication-tracker/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+android.template.app-debug-39 /home/steve/StudioProjects/medication-tracker/app/build/intermediates/merged_res/debug/mergeDebugResources
+android.template.app-debug-40 /home/steve/StudioProjects/medication-tracker/app/src/debug/res
+android.template.app-main-41 /home/steve/StudioProjects/medication-tracker/app/src/main/res

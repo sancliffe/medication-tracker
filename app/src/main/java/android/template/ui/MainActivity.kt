@@ -3,21 +3,30 @@ package android.template.ui
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
+import android.template.R
+import java.util.Date
+import java.util.Locale
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -45,10 +54,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Locale
 
 /**
  * The primary entry point for the application.
@@ -70,7 +80,7 @@ class MainActivity : ComponentActivity() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     val permissionLauncher = rememberLauncherForActivityResult(
                         contract = ActivityResultContracts.RequestPermission(),
-                        onResult = { /* Handle permission grant/denial if necessary */ }
+                        onResult = { /* Handle permission grant/denial if necessary */ },
                     )
                     LaunchedEffect(Unit) {
                         permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
@@ -96,7 +106,12 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Text(
                             text = "Medication Tracker",
-                            style = MaterialTheme.typography.headlineLarge
+                            style = MaterialTheme.typography.headlineLarge,
+                            color = Color.White,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.Black)
+                                .padding(16.dp)
                         )
 
                         val medications = viewModel.medications.collectAsState(initial = emptyList())
@@ -132,12 +147,31 @@ class MainActivity : ComponentActivity() {
                                                     style = MaterialTheme.typography.bodySmall
                                                 )
                                             }
-                                            Row {
-                                                IconButton(onClick = { medicationToEdit = medication }) {
-                                                    Icon(Icons.Default.Edit, contentDescription = "Edit")
+                                            Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                                                IconButton(
+                                                    onClick = { medicationToEdit = medication },
+                                                    modifier = Modifier
+                                                        .size(40.dp)
+                                                        .background(Color.Green, CircleShape)
+                                                ) {
+                                                    Icon(
+                                                        Icons.Default.Edit,
+                                                        contentDescription = "Edit",
+                                                        tint = Color.White
+                                                    )
                                                 }
-                                                IconButton(onClick = { viewModel.deleteMedication(medication) }) {
-                                                    Icon(Icons.Default.Delete, contentDescription = "Delete")
+                                                Spacer(modifier = Modifier.size(8.dp))
+                                                IconButton(
+                                                    onClick = { viewModel.deleteMedication(medication) },
+                                                    modifier = Modifier
+                                                        .size(40.dp)
+                                                        .background(Color.Red, CircleShape)
+                                                ) {
+                                                    Icon(
+                                                        Icons.Default.Delete,
+                                                        contentDescription = "Delete",
+                                                        tint = Color.White
+                                                    )
                                                 }
                                             }
                                         }
@@ -167,13 +201,21 @@ class MainActivity : ComponentActivity() {
                             )
                         } else {
                             LazyColumn {
-                                items(logs.value) { item ->
+                                itemsIndexed(logs.value) { index, item ->
+                                    val backgroundColor = if (index % 2 == 0) {
+                                        colorResource(id = R.color.zebra_blue)
+                                    } else {
+                                        colorResource(id = R.color.zebra_yellow)
+                                    }
                                     @Suppress("NonObservableLocale")
-                                    val formattedDate = java.text.SimpleDateFormat("MM/dd HH:mm", java.util.Locale.getDefault()).format(java.util.Date(item.log.timestamp))
+                                    val formattedDate = java.text.SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(Date(item.log.timestamp))
                                     Text(
                                         text = "${item.medication.name} - $formattedDate",
                                         style = MaterialTheme.typography.bodySmall,
-                                        modifier = Modifier.padding(4.dp)
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .background(backgroundColor)
+                                            .padding(8.dp)
                                     )
                                 }
                             }
@@ -181,7 +223,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
-                if (showAddDialog || medicationToEdit != null) {
+                if ((showAddDialog) || medicationToEdit != null) {
                     MedicationDialog(
                         initialMedication = medicationToEdit,
                         onDismiss = { 
@@ -277,7 +319,8 @@ fun MedicationDialog(
         AlertDialog(
             onDismissRequest = { showTimePicker = false },
             confirmButton = {
-                TextButton(onClick = {
+                TextButton(
+                    onClick = {
                     time = String.format(Locale.getDefault(), "%02d:%02d", timePickerState.hour, timePickerState.minute)
                     showTimePicker = false
                 }) {

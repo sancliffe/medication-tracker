@@ -1,2 +1,0 @@
-android.template.ui.test:style/WhiteBackgroundTheme = 0x7f010001
-android.template.ui.test:style/WhiteBackgroundDialogTheme = 0x7f010000
