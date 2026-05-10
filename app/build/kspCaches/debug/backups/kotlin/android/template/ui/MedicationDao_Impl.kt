@@ -142,6 +142,46 @@ public class MedicationDao_Impl(
     }
   }
 
+  public override suspend fun getMedicationById(id: Long): Medication? {
+    val _sql: String = "SELECT * FROM medications WHERE id = ?"
+    return performSuspending(__db, true, false) { _connection ->
+      val _stmt: SQLiteStatement = _connection.prepare(_sql)
+      try {
+        var _argIndex: Int = 1
+        _stmt.bindLong(_argIndex, id)
+        val _columnIndexOfId: Int = getColumnIndexOrThrow(_stmt, "id")
+        val _columnIndexOfName: Int = getColumnIndexOrThrow(_stmt, "name")
+        val _columnIndexOfDosage: Int = getColumnIndexOrThrow(_stmt, "dosage")
+        val _columnIndexOfScheduledTime: Int = getColumnIndexOrThrow(_stmt, "scheduledTime")
+        val _columnIndexOfIsRepeating: Int = getColumnIndexOrThrow(_stmt, "isRepeating")
+        val _columnIndexOfNotes: Int = getColumnIndexOrThrow(_stmt, "notes")
+        val _result: Medication?
+        if (_stmt.step()) {
+          val _tmpId: Long
+          _tmpId = _stmt.getLong(_columnIndexOfId)
+          val _tmpName: String
+          _tmpName = _stmt.getText(_columnIndexOfName)
+          val _tmpDosage: String
+          _tmpDosage = _stmt.getText(_columnIndexOfDosage)
+          val _tmpScheduledTime: String
+          _tmpScheduledTime = _stmt.getText(_columnIndexOfScheduledTime)
+          val _tmpIsRepeating: Boolean
+          val _tmp: Int
+          _tmp = _stmt.getLong(_columnIndexOfIsRepeating).toInt()
+          _tmpIsRepeating = _tmp != 0
+          val _tmpNotes: String
+          _tmpNotes = _stmt.getText(_columnIndexOfNotes)
+          _result = Medication(_tmpId,_tmpName,_tmpDosage,_tmpScheduledTime,_tmpIsRepeating,_tmpNotes)
+        } else {
+          _result = null
+        }
+        _result
+      } finally {
+        _stmt.close()
+      }
+    }
+  }
+
   public override fun getLogsWithMedications(): Flow<List<DoseLogWithMedication>> {
     val _sql: String = "SELECT * FROM dose_logs ORDER BY timestamp DESC"
     return createFlow(__db, true, arrayOf("medications", "dose_logs")) { _connection ->

@@ -1,5 +1,6 @@
 package android.template;
 
+import android.template.ui.BootReceiver_GeneratedInjector;
 import android.template.ui.DatabaseModule;
 import android.template.ui.MainActivity_GeneratedInjector;
 import android.template.ui.MedicationReminderReceiver_GeneratedInjector;
@@ -137,6 +138,7 @@ public final class MyApplication_HiltComponents {
   )
   @Singleton
   public abstract static class SingletonC implements MyApplication_GeneratedInjector,
+      BootReceiver_GeneratedInjector,
       MedicationReminderReceiver_GeneratedInjector,
       FragmentGetContextFix.FragmentGetContextFixEntryPoint,
       HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedComponentBuilderEntryPoint,

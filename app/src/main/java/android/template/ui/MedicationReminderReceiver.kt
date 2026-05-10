@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -23,14 +24,28 @@ import javax.inject.Inject
 class MedicationReminderReceiver : BroadcastReceiver() {
 
     @Inject lateinit var medicationDao: MedicationDao
+    @Inject lateinit var alarmScheduler: AlarmScheduler
 
     override fun onReceive(context: Context, intent: Intent) {
+        Log.d("MedicationReminder", "Received action: ${intent.action}")
         val medName = intent.getStringExtra("MED_NAME") ?: "your medication"
         val medId = intent.getLongExtra("MED_ID", -1L)
 
         when (intent.action) {
             "android.template.ui.ACTION_REMINDER" -> {
                 showNotification(context, medName, medId)
+                
+                // Reschedule for tomorrow if it's a repeating medication
+                if (medId != -1L) {
+                    val pendingResult = goAsync()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val medication = medicationDao.getMedicationById(medId)
+                        if (medication != null && medication.isRepeating) {
+                            alarmScheduler.scheduleMedicationAlarm(medication)
+                        }
+                        pendingResult.finish()
+                    }
+                }
             }
             "android.template.ui.ACTION_TAKEN" -> {
                 if (medId != -1L) {
@@ -69,6 +84,9 @@ class MedicationReminderReceiver : BroadcastReceiver() {
                 } catch (e: SecurityException) {
                     e.printStackTrace()
                 }
+            }
+            "android.template.ui.ACTION_IGNORE" -> {
+                Log.d("MedicationReminder", "Notification for $medName (ID: $medId) was ignored (swiped away).")
             }
         }
     }
@@ -123,12 +141,26 @@ class MedicationReminderReceiver : BroadcastReceiver() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
+        // 3. Create the PendingIntent for the "Ignore" action (swiping away)
+        val ignoreIntent = Intent(context, MedicationReminderReceiver::class.java).apply {
+            action = "android.template.ui.ACTION_IGNORE"
+            putExtra("MED_NAME", medName)
+            putExtra("MED_ID", medId)
+        }
+        val ignorePendingIntent = PendingIntent.getBroadcast(
+            context,
+            medId.toInt() + 2,
+            ignoreIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+
         val notification = NotificationCompat.Builder(context, "med_reminders")
             .setSmallIcon(android.R.drawable.ic_dialog_info) // Fallback icon; replace with your own drawable
             .setContentTitle("Time for Medication")
             .setContentText("It's time to take $medName.")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
+            .setDeleteIntent(ignorePendingIntent) // Handles swiping away
             .setAutoCancel(true)
             .addAction(0, "Take", takePendingIntent) // Add Take button
             .addAction(0, "Snooze", snoozePendingIntent) // Add Snooze button

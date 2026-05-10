@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import java.util.Calendar
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -60,15 +61,28 @@ class AlarmScheduler @Inject constructor(@ApplicationContext private val context
         }
 
         try {
-            // Set an exact alarm that triggers even if the device is in Doze mode
-            alarmManager.setExactAndAllowWhileIdle(
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                // Fallback to non-exact alarm if permission is missing
+                alarmManager.setAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    calendar.timeInMillis,
+                    pendingIntent
+                )
+            } else {
+                // Set an exact alarm that triggers even if the device is in Doze mode
+                alarmManager.setExactAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    calendar.timeInMillis,
+                    pendingIntent
+                )
+            }
+        } catch (e: SecurityException) {
+            // Last resort fallback
+            alarmManager.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
                 pendingIntent
             )
-        } catch (e: SecurityException) {
-            // Handle case where Android 14+ user denied the EXACT_ALARM permission
-            e.printStackTrace()
         }
     }
 

@@ -3,6 +3,8 @@ package android.template;
 import android.app.Activity;
 import android.app.Service;
 import android.template.ui.AlarmScheduler;
+import android.template.ui.BootReceiver;
+import android.template.ui.BootReceiver_MembersInjector;
 import android.template.ui.DatabaseModule_ProvideDatabaseFactory;
 import android.template.ui.DatabaseModule_ProvideMedicationDaoFactory;
 import android.template.ui.MainActivity;
@@ -422,10 +424,6 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     }
 
-    private AlarmScheduler alarmScheduler() {
-      return new AlarmScheduler(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
-    }
-
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
@@ -472,7 +470,7 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       public T get() {
         switch (id) {
           case 0: // android.template.ui.MedicationViewModel 
-          return (T) new MedicationViewModel(singletonCImpl.medicationDao(), viewModelCImpl.alarmScheduler());
+          return (T) new MedicationViewModel(singletonCImpl.medicationDao(), singletonCImpl.alarmScheduler());
 
           default: throw new AssertionError(id);
         }
@@ -566,6 +564,10 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       return DatabaseModule_ProvideMedicationDaoFactory.provideMedicationDao(provideDatabaseProvider.get());
     }
 
+    private AlarmScheduler alarmScheduler() {
+      return new AlarmScheduler(ApplicationContextModule_ProvideContextFactory.provideContext(applicationContextModule));
+    }
+
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
       this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<MedicationDatabase>(singletonCImpl, 0));
@@ -573,6 +575,11 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectMyApplication(MyApplication myApplication) {
+    }
+
+    @Override
+    public void injectBootReceiver(BootReceiver bootReceiver) {
+      injectBootReceiver2(bootReceiver);
     }
 
     @Override
@@ -596,10 +603,17 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       return new ServiceCBuilder(singletonCImpl);
     }
 
-    private MedicationReminderReceiver injectMedicationReminderReceiver2(
-        MedicationReminderReceiver instance) {
-      MedicationReminderReceiver_MembersInjector.injectMedicationDao(instance, medicationDao());
+    private BootReceiver injectBootReceiver2(BootReceiver instance) {
+      BootReceiver_MembersInjector.injectMedicationDao(instance, medicationDao());
+      BootReceiver_MembersInjector.injectAlarmScheduler(instance, alarmScheduler());
       return instance;
+    }
+
+    private MedicationReminderReceiver injectMedicationReminderReceiver2(
+        MedicationReminderReceiver instance2) {
+      MedicationReminderReceiver_MembersInjector.injectMedicationDao(instance2, medicationDao());
+      MedicationReminderReceiver_MembersInjector.injectAlarmScheduler(instance2, alarmScheduler());
+      return instance2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {

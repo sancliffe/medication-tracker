@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
         android:name="android.template.ui.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -27,6 +28,7 @@
         android:label="Medication Tracker"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
         <activity
             android:name="android.template.ui.MainActivity"
@@ -42,8 +44,17 @@
             android:name="android.template.ui.MedicationReminderReceiver"
             android:exported="false" >
             <intent-filter>
+                <action android:name="android.template.ui.ACTION_REMINDER" />
                 <action android:name="android.template.ui.ACTION_TAKEN" />
                 <action android:name="android.template.ui.ACTION_SNOOZE" />
+                <action android:name="android.template.ui.ACTION_IGNORE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="android.template.ui.BootReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 

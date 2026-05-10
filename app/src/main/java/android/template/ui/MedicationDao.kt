@@ -22,6 +22,9 @@ interface MedicationDao {
     @Query("SELECT * FROM medications")
     fun getAllMedications(): Flow<List<Medication>>
 
+    @Query("SELECT * FROM medications WHERE id = :id")
+    suspend fun getMedicationById(id: Long): Medication?
+
     /**
      * Inserts a new medication into the database.
      * 

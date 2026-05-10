@@ -18,6 +18,7 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_andro
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_components_SingletonComponent;
 import hilt_aggregated_deps._android_template_MyApplication_GeneratedInjector;
+import hilt_aggregated_deps._android_template_ui_BootReceiver_GeneratedInjector;
 import hilt_aggregated_deps._android_template_ui_DatabaseModule;
 import hilt_aggregated_deps._android_template_ui_MainActivity_GeneratedInjector;
 import hilt_aggregated_deps._android_template_ui_MedicationReminderReceiver_GeneratedInjector;
@@ -64,6 +65,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
     },
     aggregatedDeps = {
         _android_template_MyApplication_GeneratedInjector.class,
+        _android_template_ui_BootReceiver_GeneratedInjector.class,
         _android_template_ui_DatabaseModule.class,
         _android_template_ui_MainActivity_GeneratedInjector.class,
         _android_template_ui_MedicationReminderReceiver_GeneratedInjector.class,
