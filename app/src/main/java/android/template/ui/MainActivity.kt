@@ -55,6 +55,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -102,11 +103,12 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(16.dp)
+                            .padding(5.dp)
                     ) {
                         Text(
                             text = "Medication Tracker",
                             style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Bold,
                             color = Color.White,
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -125,7 +127,7 @@ class MainActivity : ComponentActivity() {
                         if (medications.value.isEmpty()) {
                             Text(
                                 text = "No medications yet",
-                                modifier = Modifier.padding(8.dp)
+                                modifier = Modifier.padding(5.dp)
                             )
                         } else {
                             LazyColumn {
@@ -151,7 +153,7 @@ class MainActivity : ComponentActivity() {
                                                 IconButton(
                                                     onClick = { medicationToEdit = medication },
                                                     modifier = Modifier
-                                                        .size(40.dp)
+                                                        .size(38.dp)
                                                         .background(Color.Green, CircleShape)
                                                 ) {
                                                     Icon(
@@ -160,11 +162,11 @@ class MainActivity : ComponentActivity() {
                                                         tint = Color.White
                                                     )
                                                 }
-                                                Spacer(modifier = Modifier.size(8.dp))
+                                                Spacer(modifier = Modifier.size(15.dp))
                                                 IconButton(
                                                     onClick = { viewModel.deleteMedication(medication) },
                                                     modifier = Modifier
-                                                        .size(40.dp)
+                                                        .size(38.dp)
                                                         .background(Color.Red, CircleShape)
                                                 ) {
                                                     Icon(
@@ -191,13 +193,17 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "Dose History",
                             style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(top = 16.dp)
+                            color = Color.White,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.Black)
+                                .padding(2.dp)
                         )
 
                         if (logs.value.isEmpty()) {
                             Text(
                                 text = "No dose logs yet",
-                                modifier = Modifier.padding(8.dp)
+                                modifier = Modifier.padding(3.dp)
                             )
                         } else {
                             LazyColumn {
