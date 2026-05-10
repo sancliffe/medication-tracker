@@ -103,7 +103,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(5.dp)
+                            .padding(3.dp)
                     ) {
                         Text(
                             text = "Medication Tracker",
@@ -197,7 +197,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(Color.Black)
-                                .padding(2.dp)
+                                .padding(5.dp)
                         )
 
                         if (logs.value.isEmpty()) {
